@@ -3,7 +3,7 @@
   "version": "0.0.16",
   "description": "Gnosis safe for relaying",
   "author": "Topper Bowers <topper@toppingdesign.com>",
-  "homepage": "https://github.com/quorumcontrol/ycabal#readme",
+  "homepage": "https://github.com/manifoldfinance/ycabal#readme",
   "license": "MIT",
   "main": "dist/src/index.js",
   "files": [
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quorumcontrol/ycabal.git"
+    "url": "git+https://github.com/manifoldfinance/ycabal.git"
   },
   "scripts": {
     "build": "hardhat compile && npm run typechain && tsc && cp -r types ./dist",
@@ -22,7 +22,7 @@
     "test": "hardhat test"
   },
   "bugs": {
-    "url": "https://github.com/quorumcontrol/ycabal/issues"
+    "url": "https://github.com/manifoldfinance/ycabal/issues"
   },
   "devDependencies": {
     "@gnosis.pm/safe-contracts": "^1.2.0",
