@@ -1,0 +1,42 @@
+-
+   Location: Europe
+   Server Host: eth-eu1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: Europe
+   Server Host: eth-eu2.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: US East
+   Server Host: eth-us-east1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: US West
+   Server Host: eth-us-west1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: Asia
+   Server Host: eth-asia1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: Japan
+   Server Host: eth-jp1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
+-
+   Location: Australia
+   Server Host: eth-au1.nanopool.org
+   Stratum Port: 9999
+   Getwork Port: 8888
+   SSLPort: 9433
