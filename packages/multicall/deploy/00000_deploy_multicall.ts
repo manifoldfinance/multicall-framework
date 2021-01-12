@@ -1,15 +1,14 @@
-import { HardhatRuntimeEnvironment } from 'hardhat/types'
-import { DeployFunction } from 'hardhat-deploy/types'
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction } from "hardhat-deploy/types";
 
-const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
-  const { deploy } = hre.deployments
-  const { deployer } = await hre.getNamedAccounts()
+const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  const { deploy } = hre.deployments;
+  const { deployer } = await hre.getNamedAccounts();
 
-  await deploy('Multicall', {
+  await deploy("Multicall", {
     from: deployer,
     log: true,
-  })
+  });
+};
 
-}
-
-export default func
+export default func;

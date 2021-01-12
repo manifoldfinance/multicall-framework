@@ -1,4 +1,4 @@
-# Ycabal Multicall
+# `YCabal Multicall`
 
 Ycabal Multicall makes it easier to work with Multicall ( https://github.com/makerdao/multicall ).
 
@@ -42,3 +42,7 @@ await echo.deployed();
 const wrappedEcho = await wrapper.wrap<Echo>(echo);
 console.log(await wrappedEcho.echo("hi"));
 ```
+
+## License 
+
+SSPL-1.0
