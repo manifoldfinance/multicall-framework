@@ -1,8 +1,8 @@
-# Kasumah Multicall
+# Ycabal Multicall
 
-Kasumah Multicall makes it easier to work with Multicall ( https://github.com/makerdao/multicall ).
+Ycabal Multicall makes it easier to work with Multicall ( https://github.com/makerdao/multicall ).
 
-Kasumah Multicall wraps https://www.npmjs.com/package/ethers-multicall to make it transparent when using contracts, drastically simplifying use (making it transparent).
+Ycabal Multicall wraps https://www.npmjs.com/package/ethers-multicall to make it transparent when using contracts, drastically simplifying use (making it transparent).
 
 Behind the scenes it uses https://github.com/graphql/dataloader (without cacheing) inorder to queue up view calls and batch them up into a single RPC call.
 

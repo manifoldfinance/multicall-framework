@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
     <NavbarContainer>
       <Box>
         <Text fontSize="lg" fontWeight="bold">
-            Kasumah
+            Ycabal
         </Text>
       </Box>
       <Spacer />
