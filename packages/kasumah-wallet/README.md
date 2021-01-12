@@ -1,4 +1,4 @@
-# `kasumah-wallet`
+# `ycabal-wallet`
 
 Kasumah Wallet is a wrapper around a Gnosis Safe (1.2.0 - https://docs.gnosis.io/safe/ )
 

@@ -1,9 +1,9 @@
 {
-  "name": "kasumah-multicall",
+  "name": "ycabal-multicall",
   "version": "0.0.16",
   "description": "transparently wrap ethers contracts to use the Multicall contract",
   "author": "Topper Bowers <topper@quorumcontrol.com>",
-  "homepage": "https://github.com/quorumcontrol/kasumah/tree/main/packages/kasumah-multicall",
+  "homepage": "https://github.com/quorumcontrol/ycabal/tree/main/packages/ycabal-multicall",
   "license": "MIT",
   "main": "dist/src/index.js",
   "scripts": {
