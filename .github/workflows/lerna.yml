@@ -32,6 +32,6 @@ jobs:
     - name: lerna install, build, and test
       run: |
         npm install lerna -g
-        lerna exec yarn --prefer-offline
+        lerna bootstrap
       env:
         CI: true
