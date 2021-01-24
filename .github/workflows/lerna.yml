@@ -36,4 +36,4 @@ jobs:
         npm install lerna -g
         lerna bootstrap
       env:
-        CI: true
+        CI: false
