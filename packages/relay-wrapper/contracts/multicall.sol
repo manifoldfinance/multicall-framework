@@ -1,7 +1,8 @@
+/// SPDX-License-Identifier: GPL-3.0
+
 pragma solidity >=0.7.0;
 pragma experimental ABIEncoderV2;
 /// This is https://github.com/makerdao/multicall/blob/master/src/Multicall.sol
-/// but deploying that is a bit complicated so duplicating in our repo for now
 
 /// @title Multicall - Aggregate results from multiple read-only function calls
 /// @author Michael Elliot <mike@makerdao.com>
