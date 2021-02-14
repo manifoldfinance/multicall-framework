@@ -31,7 +31,8 @@ jobs:
            ${{ runner.os }}-yarn-
     - name: lerna install, build, and test
       run: |
-        npm install lerna -g
+        npm install
+        npm install lerna
         lerna bootstrap
       env:
         CI: true
