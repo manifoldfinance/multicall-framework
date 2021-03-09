@@ -14,7 +14,7 @@
     "jest-junit": "^11.1.0",
     "lerna": "^3.22.1",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.3.1",
+    "semantic-release": "^17.4.1",
     "ts-jest": "^24.1.0",
     "typescript": "^3.7.2"
   },
@@ -23,6 +23,5 @@
     "test-ci": "jest --ci --coverage",
     "format": "prettier --write .",
     "lint": "eslint \"packages/**/{src,__tests__}/**/*.ts\" -f eslint-formatter-friendly"
-  },
-  "dependencies": {}
+  }
 }
