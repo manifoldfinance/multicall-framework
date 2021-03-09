@@ -9,7 +9,7 @@ export async function all<T extends any[] = any[]>(
   provider: ethers.providers.Provider,
 ): Promise<T> {
   const multicall = new ethers.Contract(multicallAddress, multicallAbi, provider);
-  const callRequests = calls.map(call => {
+  const callRequests = calls.map((call) => {
     const callData = Abi.encode(call.name, call.inputs, call.params);
     return {
       target: call.contract.address,

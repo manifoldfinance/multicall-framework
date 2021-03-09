@@ -1,6 +1,6 @@
-import { Box, Button, Heading, Input, Stack } from "@chakra-ui/react";
-import React from "react";
-import { DefaultLayout } from "../layouts/Default";
+import { Box, Button, Heading, Input, Stack } from '@chakra-ui/react';
+import React from 'react';
+import { DefaultLayout } from '../layouts/Default';
 
 export const IndexPage: React.FC = () => {
   return (

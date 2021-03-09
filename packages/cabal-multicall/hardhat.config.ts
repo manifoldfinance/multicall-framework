@@ -1,10 +1,10 @@
-import "@nomiclabs/hardhat-waffle";
-import "@nomiclabs/hardhat-ethers";
-import { HardhatUserConfig } from "hardhat/config";
-import "hardhat-deploy";
-import { NetworkUserConfig } from "hardhat/types";
-import dotenv from "dotenv";
-import { Wallet } from "ethers";
+import '@nomiclabs/hardhat-waffle';
+import '@nomiclabs/hardhat-ethers';
+import { HardhatUserConfig } from 'hardhat/config';
+import 'hardhat-deploy';
+import { NetworkUserConfig } from 'hardhat/types';
+import dotenv from 'dotenv';
+import { Wallet } from 'ethers';
 
 dotenv.config();
 
@@ -20,14 +20,13 @@ if (process.env.CHAIN_ID) {
   };
 }
 
-networks["mumbai"] = {
-  url:
-    "https://rpc-mumbai.maticvigil.com/v1/c0ce8ac6dcee6f838f2d4cf83d16b6ca1493aa0b",
+networks['mumbai'] = {
+  url: 'https://rpc-mumbai.maticvigil.com/v1/c0ce8ac6dcee6f838f2d4cf83d16b6ca1493aa0b',
   chainId: 80001,
 };
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: 'hardhat',
   namedAccounts: {
     deployer: {
       default: 0,
@@ -39,13 +38,13 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.0",
+        version: '0.8.0',
         settings: {
           optimizer: {
             enabled: true,
             runs: 1,
           },
-          evmVersion: "istanbul",
+          evmVersion: 'istanbul',
         },
       },
     ],

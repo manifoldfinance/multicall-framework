@@ -1,16 +1,15 @@
 # [etherpc-multicall](#)
 
-
 ## API
 
-```js 
+```js
 Contract(address, abi): // Create contract instance; calling contract.callFuncName will yield a call object
 all(calls): // Execute all calls in a single request
 calls: // List of helper call methods
 getEthBalance(address):  // Returns account ether balance
 ```
 
-```ts 
+```ts
 import { Contract, Provider } from 'ethrpc-multicall';
 import { ethers } from 'ethers';
 

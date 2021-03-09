@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers } from 'ethers';
 
 export class Abi {
   public static encode(name: string, inputs: ethers.utils.ParamType[], params: any[]) {
@@ -22,20 +22,20 @@ export class Abi {
 function getFunctionSignature(name: string, inputs: ethers.utils.ParamType[]) {
   const types = [];
   for (const input of inputs) {
-    if (input.type === "tuple") {
-      const tupleString = getFunctionSignature("", input.components);
+    if (input.type === 'tuple') {
+      const tupleString = getFunctionSignature('', input.components);
       types.push(tupleString);
       continue;
     }
-    if (input.type === "tuple[]") {
-      const tupleString = getFunctionSignature("", input.components);
+    if (input.type === 'tuple[]') {
+      const tupleString = getFunctionSignature('', input.components);
       const arrayString = `${tupleString}[]`;
       types.push(arrayString);
       continue;
     }
     types.push(input.type);
   }
-  const typeString = types.join(",");
+  const typeString = types.join(',');
   const functionSignature = `${name}(${typeString})`;
   return functionSignature;
 }

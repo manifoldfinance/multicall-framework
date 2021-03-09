@@ -3,13 +3,13 @@ import {
   ContractCall,
   Provider,
   setMulticallAddress,
-} from "ethers-multicall";
-import { Contract, providers } from "ethers";
-import { FunctionFragment } from "ethers/lib/utils";
-import DataLoader from "dataloader";
+} from 'ethers-multicall';
+import { Contract, providers } from 'ethers';
+import { FunctionFragment } from 'ethers/lib/utils';
+import DataLoader from 'dataloader';
 
 // matic mumbai
-setMulticallAddress(80001, "0x41eB847bD788F3219254371212C947793C392374");
+setMulticallAddress(80001, '0x41eB847bD788F3219254371212C947793C392374');
 
 export class MulticallWrapper {
   private ethcallProvider: Provider;
@@ -33,12 +33,10 @@ export class MulticallWrapper {
     const dataLoader = this.dataLoader;
 
     const funcs = abi.reduce((memo, frag) => {
-      if (frag.type === "function") {
+      if (frag.type === 'function') {
         const funcFrag = frag as FunctionFragment;
-        if (["pure", "view"].includes(funcFrag.stateMutability)) {
-          const multicallFunc = multicallContract[funcFrag.name].bind(
-            multicallContract
-          );
+        if (['pure', 'view'].includes(funcFrag.stateMutability)) {
+          const multicallFunc = multicallContract[funcFrag.name].bind(multicallContract);
           const newFunc = (...args: any) => {
             const contractCall = multicallFunc(...args);
             return dataLoader.load(contractCall);

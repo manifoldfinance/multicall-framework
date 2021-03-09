@@ -2,9 +2,11 @@
 
 Ycabal Multicall makes it easier to work with Multicall ( https://github.com/makerdao/multicall ).
 
-Ycabal Multicall wraps https://www.npmjs.com/package/ethers-multicall to make it transparent when using contracts, drastically simplifying use (making it transparent).
+Ycabal Multicall wraps https://www.npmjs.com/package/ethers-multicall to make it transparent when
+using contracts, drastically simplifying use (making it transparent).
 
-Behind the scenes it uses https://github.com/graphql/dataloader (without cacheing) inorder to queue up view calls and batch them up into a single RPC call.
+Behind the scenes it uses https://github.com/graphql/dataloader (without cacheing) inorder to queue
+up view calls and batch them up into a single RPC call.
 
 ## Usage
 
@@ -23,26 +25,26 @@ const wrappedEcho = await wrapper.wrap<Echo>(echo);
 From there you can just call your contracts as normal:
 
 ```typescript
-await wrappedEcho.echo("hi"); // will return 'hi'
+await wrappedEcho.echo('hi'); // will return 'hi'
 ```
 
 A full example. Extracted from the [tests](test/MulticallWrapper.ts).
 
 ```typescript
-const infuraKey = "INSERT_YOUR_KEY_HERE";
-const provider = new ethers.providers.InfuraProvider("mainnet", infuraKey);
+const infuraKey = 'INSERT_YOUR_KEY_HERE';
+const provider = new ethers.providers.InfuraProvider('mainnet', infuraKey);
 
 // create the wrapper:
 const wrapper = new MulticallWrapper(ethers.provider, 1); // chainId of 1 for 'mainnet'
 
-const EchoFactory = await ethers.getContractFactory("Echo");
+const EchoFactory = await ethers.getContractFactory('Echo');
 echo = (await EchoFactory.deploy()) as Echo;
 await echo.deployed();
 
 const wrappedEcho = await wrapper.wrap<Echo>(echo);
-console.log(await wrappedEcho.echo("hi"));
+console.log(await wrappedEcho.echo('hi'));
 ```
 
-## License 
+## License
 
 SSPL-1.0

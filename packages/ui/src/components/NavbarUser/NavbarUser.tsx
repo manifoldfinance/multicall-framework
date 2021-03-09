@@ -1,6 +1,6 @@
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
-import React from "react";
-import { Identicon } from "../Identicon/Identicon";
+import { Box, Flex, HStack, Text } from '@chakra-ui/react';
+import React from 'react';
+import { Identicon } from '../Identicon/Identicon';
 
 export const NavbarUser: React.FC = () => {
   return (

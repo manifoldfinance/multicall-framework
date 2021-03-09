@@ -1,4 +1,4 @@
-import { BigNumber, BigNumberish, BytesLike, Signer } from "ethers";
+import { BigNumber, BigNumberish, BytesLike, Signer } from 'ethers';
 
 type Address = string;
 
@@ -19,32 +19,32 @@ export const signer = async function (
   gasPrice: BigNumberish,
   txGasToken: Address,
   refundReceiver: Address,
-  nonce: BigNumberish
+  nonce: BigNumberish,
 ) {
   if (!BigNumber.isBigNumber(value)) {
     value = BigNumber.from(value);
   }
   let typedData = {
     types: {
-      EIP712Domain: [{ type: "address", name: "verifyingContract" }],
+      EIP712Domain: [{ type: 'address', name: 'verifyingContract' }],
       // "SafeTx(address to,uint256 value,bytes data,uint8 operation,uint256 safeTxGas,uint256 baseGas,uint256 gasPrice,address gasToken,address refundReceiver,uint256 nonce)"
       SafeTx: [
-        { type: "address", name: "to" },
-        { type: "uint256", name: "value" },
-        { type: "bytes", name: "data" },
-        { type: "uint8", name: "operation" },
-        { type: "uint256", name: "safeTxGas" },
-        { type: "uint256", name: "baseGas" },
-        { type: "uint256", name: "gasPrice" },
-        { type: "address", name: "gasToken" },
-        { type: "address", name: "refundReceiver" },
-        { type: "uint256", name: "nonce" },
+        { type: 'address', name: 'to' },
+        { type: 'uint256', name: 'value' },
+        { type: 'bytes', name: 'data' },
+        { type: 'uint8', name: 'operation' },
+        { type: 'uint256', name: 'safeTxGas' },
+        { type: 'uint256', name: 'baseGas' },
+        { type: 'uint256', name: 'gasPrice' },
+        { type: 'address', name: 'gasToken' },
+        { type: 'address', name: 'refundReceiver' },
+        { type: 'uint256', name: 'nonce' },
       ],
     },
     domain: {
       verifyingContract,
     },
-    primaryType: "SafeTx",
+    primaryType: 'SafeTx',
     message: {
       to: to,
       value: value.toHexString(),
@@ -61,10 +61,7 @@ export const signer = async function (
 
   const addr = await signer.getAddress();
 
-  let sig = await (signer.provider as any).send("eth_signTypedData", [
-    addr,
-    typedData,
-  ]);
+  let sig = await (signer.provider as any).send('eth_signTypedData', [addr, typedData]);
 
   return sig;
 };

@@ -1,10 +1,12 @@
 # `web3-multicall`
 
-Make multiple Ethereum network requests in a single HTTP query. [ethcall](https://github.com/Destiner/ethcall) for ethers v5.
+Make multiple Ethereum network requests in a single HTTP query.
+[ethcall](https://github.com/Destiner/ethcall) for ethers v5.
 
 ## API
 
-- `Contract(address, abi)`: Create contract instance; calling `contract.callFuncName` will yield a `call` object
+- `Contract(address, abi)`: Create contract instance; calling `contract.callFuncName` will yield a
+  `call` object
 - `all(calls)`: Execute all calls in a single request
 - `calls`: List of helper call methods
 - `getEthBalance(address)`: Returns account ether balance
@@ -12,15 +14,15 @@ Make multiple Ethereum network requests in a single HTTP query. [ethcall](https:
 ## Example
 
 ```ts
-import { Contract, Provider } from "web3s-multicall";
-import { ethers } from "ethers";
+import { Contract, Provider } from 'web3s-multicall';
+import { ethers } from 'ethers';
 
-import erc20Abi from "./abi/erc20.json";
+import erc20Abi from './abi/erc20.json';
 
-const infuraKey = "INSERT_YOUR_KEY_HERE";
-const provider = new ethers.providers.InfuraProvider("mainnet", infuraKey);
+const infuraKey = 'INSERT_YOUR_KEY_HERE';
+const provider = new ethers.providers.InfuraProvider('mainnet', infuraKey);
 
-const daiAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
+const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
 
 async function call() {
   const ethcallProvider = new Provider(provider);
@@ -29,15 +31,15 @@ async function call() {
 
   const daiContract = new Contract(daiAddress, erc20Abi);
 
-  const uniswapDaiPool = "0x2a1530c4c41db0b0b2bb646cb5eb1a67b7158667";
+  const uniswapDaiPool = '0x2a1530c4c41db0b0b2bb646cb5eb1a67b7158667';
 
   const ethBalanceCall = ethcallProvider.getEthBalance(uniswapDaiPool);
   const daiBalanceCall = daiContract.balanceOf(uniswapDaiPool);
 
   const [ethBalance, daiBalance] = await ethcallProvider.all([ethBalanceCall, daiBalanceCall]);
 
-  console.log("ETH Balance:", ethBalance.toString());
-  console.log("DAI Balance:", daiBalance.toString());
+  console.log('ETH Balance:', ethBalance.toString());
+  console.log('DAI Balance:', daiBalance.toString());
 }
 
 call();
@@ -47,6 +49,6 @@ call();
 
 YCabal RPC Integration
 
-## License 
+## License
 
 MIT

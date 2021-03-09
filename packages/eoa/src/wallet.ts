@@ -1,17 +1,17 @@
-import { constants, Signer, utils, VoidSigner } from "ethers";
+import { constants, Signer, utils, VoidSigner } from 'ethers';
 import {
   GnosisSafeProxyFactory,
   GnosisSafeProxyFactory__factory,
   GnosisSafe__factory,
-} from "../types/ethers-contracts";
+} from '../types/ethers-contracts';
 
 export type Address = string;
 const addr0 = constants.AddressZero;
 
-const PROXY_ADDR = "0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B";
-const MASTER_COPY_ADDR = "0x6851D6fDFAfD08c0295C392436245E5bc78B0185";
+const PROXY_ADDR = '0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B';
+const MASTER_COPY_ADDR = '0x6851D6fDFAfD08c0295C392436245E5bc78B0185';
 
-const DEFAULT_HANDLER = "0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44";
+const DEFAULT_HANDLER = '0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44';
 
 const voidSigner = new VoidSigner(addr0);
 const voidMasterCopy = new GnosisSafe__factory(voidSigner).attach(addr0);
@@ -30,14 +30,14 @@ async function setupDataForUser(user: Address) {
     [user],
     1,
     addr0,
-    "0x",
+    '0x',
     DEFAULT_HANDLER,
     addr0,
     0,
-    addr0
+    addr0,
   );
   if (!setupData.data) {
-    throw new Error("no setup data");
+    throw new Error('no setup data');
   }
   return setupData.data;
 }
@@ -50,9 +50,7 @@ export class WalletMaker {
   constructor({ signer, chainId }: WalletMakerConstructorArgs) {
     this.signer = signer;
 
-    const proxyFactory = new GnosisSafeProxyFactory__factory(signer).attach(
-      PROXY_ADDR
-    );
+    const proxyFactory = new GnosisSafeProxyFactory__factory(signer).attach(PROXY_ADDR);
 
     this.proxyFactory = proxyFactory;
     this.chainId = chainId;
@@ -63,7 +61,7 @@ export class WalletMaker {
     const walletTx = await this.proxyFactory.createProxyWithNonce(
       MASTER_COPY_ADDR,
       setupData,
-      this.chainId
+      this.chainId,
     );
     const walletReceipt = await walletTx.wait();
 
@@ -74,30 +72,23 @@ export class WalletMaker {
     const setupData = await setupDataForUser(user);
 
     const salt = utils.keccak256(
-      utils.solidityPack(
-        ["bytes", "uint256"],
-        [utils.keccak256(setupData), this.chainId]
-      )
+      utils.solidityPack(['bytes', 'uint256'], [utils.keccak256(setupData), this.chainId]),
     );
     const initCode = utils.solidityKeccak256(
-      ["bytes", "bytes"],
+      ['bytes', 'bytes'],
       [
         await this.proxyFactory.proxyCreationCode(),
-        utils.defaultAbiCoder.encode(["address"], [MASTER_COPY_ADDR]),
-      ]
+        utils.defaultAbiCoder.encode(['address'], [MASTER_COPY_ADDR]),
+      ],
     );
 
-    const addr = utils.getCreate2Address(
-      this.proxyFactory.address,
-      salt,
-      initCode
-    );
+    const addr = utils.getCreate2Address(this.proxyFactory.address, salt, initCode);
     return addr.toLowerCase();
   }
 
   async isDeployed(user: Address) {
     const addr = await this.walletAddressForUser(user);
     const code = await this.signer.provider!.getCode(addr);
-    return code !== "0x";
+    return code !== '0x';
   }
 }

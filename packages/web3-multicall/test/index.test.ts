@@ -1,3 +1,3 @@
-describe("noop", () => {
+describe('noop', () => {
   // no tests :(
 });

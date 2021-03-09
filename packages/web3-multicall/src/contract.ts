@@ -1,4 +1,4 @@
-import { JsonFragment } from "@ethersproject/abi";
+import { JsonFragment } from '@ethersproject/abi';
 
 export class Contract {
   private _address: string;
@@ -21,8 +21,10 @@ export class Contract {
     this._address = address;
     this._abi = abi;
 
-    this._functions = abi.filter(x => x.type === "function");
-    const callFunctions = this._functions.filter(x => x.stateMutability === "pure" || x.stateMutability === "view");
+    this._functions = abi.filter((x) => x.type === 'function');
+    const callFunctions = this._functions.filter(
+      (x) => x.stateMutability === 'pure' || x.stateMutability === 'view',
+    );
 
     for (const callFunction of callFunctions) {
       const { name } = callFunction;
@@ -39,8 +41,8 @@ export class Contract {
 function makeCallFunction(contract: Contract, name: string) {
   return (...params: any[]) => {
     const { address } = contract;
-    const { inputs } = contract.functions.find(f => f.name === name);
-    const { outputs } = contract.functions.find(f => f.name === name);
+    const { inputs } = contract.functions.find((f) => f.name === name);
+    const { outputs } = contract.functions.find((f) => f.name === name);
     return {
       contract: {
         address,
