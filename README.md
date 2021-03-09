@@ -1,3 +1,18 @@
+<!-- START pkgtoc, keep to allow update -->
+
+**Packages**
+
+| Package                                             | Description                                                                            |
+| :-------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| **[ethrpc-multicall](packages/ethrpc-multicall/)**  | Multi RPC Call via single HTTP query. ethers v5.                                       |
+| **[web3-multicall](packages/web3-multicall/)**      | Make multiple Ethereum network requests in a single HTTP query. ethcall for ethers v5. |
+| **[ycabal-frontend](packages/ui/)**                 |                                                                                        |
+| **[ycabal-multicall](packages/cabal-multicall/)**   | transparently wrap ethers contracts to use the Multicall contract                      |
+| **[ycabal-relay-wrapper](packages/relay-wrapper/)** | wraps standard ethers contracts to use a relayer                                       |
+| **[ycabal-wallet](packages/eoa/)**                  | Gnosis safe for relaying                                                               |
+
+<!-- END pkgtoc, keep to allow update -->
+
 # manifold-cabal
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
