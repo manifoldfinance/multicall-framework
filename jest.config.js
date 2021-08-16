@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   rootDir: 'packages',
-  coverageDirectory: '../coverage',
+  coverageDirectory: './coverage',
   coverageReporters: ['cobertura', 'text'],
   collectCoverageFrom: ['**/src/**/*.ts'],
   reporters: [
